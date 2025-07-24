@@ -1,10 +1,6 @@
 # Mini-AutoGPT
 
-Mini-AutoGPT is a demonstration of a fully autonomous AI using local LLMs. It is built with Python 3.11 and uses `python-telegram-bot` for communication. This project serves as a guide for readers of my book "Unlocking the Power of Auto-GPT and Its Plugins" and as a preview of Sophie-AI, a more advanced autonomous AI. It defaults to Llama 3.1 8B and LM Studio.
-
-### Important Note
-
-This project uses the `python-telegram-bot` library for Telegram communication. Please ensure you install the correct package using `python-telegram-bot`. Installing the `telegram` package will not work and is not supported.
+Mini-AutoGPT is a demonstration of a fully autonomous AI using local LLMs. It is built with Python 3.11 and communicates through the command line. This project serves as a guide for readers of my book "Unlocking the Power of Auto-GPT and Its Plugins" and as a preview of Sophie-AI, a more advanced autonomous AI. It defaults to Llama 3.1 8B and LM Studio.
 
 ## Table of Contents 📚
 
@@ -18,12 +14,11 @@ This project uses the `python-telegram-bot` library for Telegram communication. 
 
 ## What's Cooking?
 
-Mini-AutoGPT is a lightweight AI bot designed to run locally and interact with you via Telegram. It's simple to use and modify, capable of handling complex chat applications, and allows local AI experimentation without cloud services.
+Mini-AutoGPT is a lightweight AI bot designed to run locally and interact with you through the command line. It's simple to use and modify, capable of handling complex chat applications, and allows local AI experimentation without cloud services.
 
 Key components:
 
 - **Python 3.11**: Core language
-- **python-telegram-bot**: Telegram communication
 - **Autonomy**: No manual intervention
 
 ## Setup
@@ -31,13 +26,12 @@ Key components:
 To get started:
 
 1. Python 3.11 or later installed on your machine.
-2. A Telegram bot token (get yours from [@BotFather](https://t.me/BotFather)).
-3. Clone this repository:
+2. Clone this repository:
     ```bash
     git clone https://github.com/yourusername/mini-autogpt.git
     cd mini-autogpt
     ```
-4. Run the setup script:
+3. Run the setup script:
     ```bash
     ./setup.sh
     ```
@@ -45,11 +39,11 @@ To get started:
    - Create a Python virtual environment
    - Install all dependencies
    - Create a .env file from template
-5. Run a local LLM server:
+4. Run a local LLM server:
     - LMStudio
     - oobabooga/textgeneration-webui
     - Ollama
-6. Update `.env` with the API URL and server type. Examples:
+5. Update `.env` with the API URL and server type. Examples:
 
     - **LMStudio:**
         ```

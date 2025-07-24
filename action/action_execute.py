@@ -2,7 +2,7 @@ import json
 import time
 import traceback
 from utils.log import log, save_debug
-from utils.simple_telegram import TelegramUtils
+from utils.simple_console import ConsoleUtils
 import think.memory as memory
 
 from itertools import islice
@@ -22,10 +22,7 @@ def take_action(assistant_message):
     global fail_counter
     load_dotenv()
 
-    telegram_api_key = os.getenv("TELEGRAM_API_KEY")
-    telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID")
-
-    telegram = TelegramUtils(api_key=telegram_api_key, chat_id=telegram_chat_id)
+    console = ConsoleUtils()
 
     try:
         # only if the assistant_message is a string, it is converted to a dictionary
@@ -40,11 +37,11 @@ def take_action(assistant_message):
         if action == "ask_user":
             try:
                 log("Waiting for user response...")
-                ask_user_respnse = telegram.ask_user(content["message"])
+                ask_user_respnse = console.ask_user(content["message"])
                 user_response = f"The user's answer: '{ask_user_respnse}'"
                 print("User responded: " + user_response)
                 if ask_user_respnse == "/debug":
-                    telegram.send_message(str(assistant_message))
+                    console.send_message(str(assistant_message))
                     log("received debug command")
                 save_debug(content, {"response": user_response}, request_type="user_interaction")
                 memory.add_to_response_history(content["message"], user_response)
@@ -54,7 +51,7 @@ def take_action(assistant_message):
                 raise
 
         elif action == "send_message" or action == "send_log":
-            telegram.send_message(content["message"])
+            console.send_message(content["message"])
             save_debug(content, {"status": "sent"}, request_type="send_message")
             memory.add_to_response_history(content["message"], "No response.")
 

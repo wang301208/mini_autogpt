@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 
 import think.memory as memory
 import think.think as think
-import utils.simple_telegram as telegram
 import utils.llm as llm
 from utils.log import log
 
@@ -31,11 +30,6 @@ def check_environment():
         if error:
             errors.append(error)
 
-    # Initialize and test Telegram connection
-    try:
-        telegram.test_init()
-    except Exception as e:
-        errors.append(str(e))
 
     # If there are any errors, display them and exit
     if errors:
